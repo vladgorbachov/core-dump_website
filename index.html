@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Core Dump BBS - Main Terminal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+ <div class="terminal">
+        <pre class="header">
+╔════════════════════════════════════════════════════════════════════════════════╗
+║                                                                                ║
+║   ██████╗ ██████╗ ██████╗ ███████╗    ██████╗ ██╗   ██╗███╗   ███╗██████╗      ║
+║  ██╔════╝██╔═══██╗██╔══██╗██╔════╝    ██╔══██╗██║   ██║████╗ ████║██╔══██╗     ║
+║  ██║     ██║   ██║██████╔╝█████╗      ██║  ██║██║   ██║██╔████╔██║██████╔╝     ║
+║  ██║     ██║   ██║██╔══██╗██╔══╝      ██║  ██║██║   ██║██║╚██╔╝██║██╔═══╝      ║
+║  ╚██████╗╚██████╔╝██║  ██║███████╗    ██████╔╝╚██████╔╝██║ ╚═╝ ██║██║          ║
+║   ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝    ╚═════╝  ╚═════╝ ╚═╝     ╚═╝╚═╝          ║
+║                                                                                ║
+║                        ██████╗ ██████╗ ███████╗                                ║
+║                        ██╔══██╗██╔══██╗██╔════╝                                ║
+║                        ██████╔╝██████╔╝███████╗                                ║
+║                        ██╔══██╗██╔══██╗╚════██║                                ║
+║                        ██████╔╝██████╔╝███████║                                ║
+║                        ╚═════╝ ╚═════╝ ╚══════╝                                ║
+║                                                                                ║
+║                                                                                ║
+║                                                                                ║
+║                    [ BULLETIN BOARD SYSTEM v1.0.0 ]                            ║
+║                                                                                ║
+╚════════════════════════════════════════════════════════════════════════════════╝
+        </pre>
+
+        <pre class="system-info">
+┌─[ SYSTEM STATUS ]──────────────────────────────────────────────────────────────┐
+│ > CONNECTED TO: Core Dump BBS                                                  │
+│ > TERMINAL TYPE: VT100                                                         │
+│ > CONNECTION: 56.6K MODEM                                                      │
+│ > DATE: <span id="current-date"></span>                                                             │
+│ > TIME: <span id="current-time"></span>                                                               │
+│ > USERS ONLINE: 1                                                              │
+└────────────────────────────────────────────────────────────────────────────────┘
+        </pre>
+
+        <pre class="menu">
+┌─[ MAIN MENU ]──────────────────────────────────────────────────────────────────┐
+│                                                                                │
+│  Select an option:                                                             │
+│                                                                                │
+│  <a href="index.html" class="active menu-item" style="--item-index: 0">[1] HOME PAGE</a>    <a><span class="menu-desc" style="--item-index: 0">- You are here</span></a>                                               │
+│  <a href="blog.html" class="menu-item" style="--item-index: 1">[2] BLOG</a>         <a><span class="menu-desc" style="--item-index: 1">- System logs and thoughts</span></a>                                   │
+│  <a href="articles.html" class="menu-item" style="--item-index: 2">[3] ARTICLES</a>     <a><span class="menu-desc" style="--item-index: 2">- Technical documentation</span></a>                                    │
+│  <a href="media.html" class="menu-item" style="--item-index: 3">[4] MEDIA</a>        <a><span class="menu-desc" style="--item-index: 3">- Video archives</span></a>                                             │
+│  <a href="downloads.html" class="menu-item" style="--item-index: 4">[5] DOWNLOADS</a>   <a><span class="menu-desc" style="--item-index: 4">- Software repository</span></a>                                         │
+│  <a href="#" class="menu-item" style="--item-index: 5">[0] DISCONNECT</a>   <span class="menu-desc" style="--item-index: 5">- Exit BBS</span></a>                                                   │
+│                                                                                │
+└────────────────────────────────────────────────────────────────────────────────┘
+        </pre>
+
+        <pre class="content">
+┌─[ WELCOME MESSAGE ]────────────────────────────────────────────────────────────┐
+│                                                                                │
+│  Welcome to Core Dump BBS - Your gateway to the digital underground!           │
+│                                                                                │
+│  This bulletin board system is dedicated to:                                   │
+│                                                                                │
+│    ▸ Retro computing and vintage hardware                                      │
+│    ▸ Programming tips and tricks                                               │
+│    ▸ System administration wisdom                                              │
+│    ▸ Digital archaeology and preservation                                      │
+│                                                                                │
+│  Remember: "When in doubt, check the core dump!"                               │
+│                                                                                │
+│  ╔═══════════════════════════════════════════════════════════════════╗         │
+│  ║  "The only way to learn a new programming language is by          ║         │
+│  ║   writing programs in it." - Dennis Ritchie                       ║         │
+│  ╚═══════════════════════════════════════════════════════════════════╝         │
+│                                                                                │
+└────────────────────────────────────────────────────────────────────────────────┘
+        </pre>
+
+        <pre class="ascii-art">
+                    _______________
+                   |  ___________  |
+                   | |           | |
+                   | |  >_       | |
+                   | |           | |
+                   | |___________| |
+                   |_______________|
+                  _|_______________|_
+                 |  ___ ___ ___  _  |
+                 | | 7 | 8 | 9 |(_) |
+                 | |___|___|___|    |
+                 | | 4 | 5 | 6 | =  |
+                 | |___|___|___|    |
+                 | | 1 | 2 | 3 | +  |
+                 | |___|___|___|    |
+                 | | . | 0 | / | -  |
+                 | |___|___|___|____|
+                 |__________________|
+        </pre>
+
+        <pre class="footer">
+────────────────────────────────────────────────────────────────────────────────
+ DeLion Software © 2025 | All rights reserved | Running on 8-bit dreams
+────────────────────────────────────────────────────────────────────────────────
+        </pre>
+    </div>
+
+    <script>
+        // Простой скрипт для отображения даты и времени
+        function updateDateTime() {
+            const now = new Date();
+            document.getElementById('current-date').textContent = now.toLocaleDateString('ru-RU');
+            document.getElementById('current-time').textContent = now.toLocaleTimeString('ru-RU');
+        }
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+    </script>
+</body>
+</html>

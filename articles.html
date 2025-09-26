@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Core Dump BBS - Technical Articles</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="terminal">
+        <pre class="header bbs-title">
+╔════════════════════════════════════════════════════════════════════════════════╗
+║                      CORE DUMP BBS - TECHNICAL LIBRARY                         ║
+║                     ════════════════════════════════                           ║
+║                         Documentation & Tutorials                              ║
+╚════════════════════════════════════════════════════════════════════════════════╝
+        </pre>
+
+        <pre class="menu">
+┌─[ NAVIGATION ]─────────────────────────────────────────────────────────────────┐
+│  <a href="index.html">[HOME]</a> <a href="blog.html">[BLOG]</a> <a href="articles.html" class="active">[ARTICLES]</a> <a href="media.html">[MEDIA]</a> <a href="downloads.html">[DOWNLOADS]</a>                   │
+└────────────────────────────────────────────────────────────────────────────────┘
+        </pre>
+
+        <div class="article">
+            <pre class="article-title">
+═══════════════════════════════════════════════════════════════════════════════
+▓▓▓ ARTICLE: Building Your Own 8-bit Computer from Scratch ▓▓▓
+═══════════════════════════════════════════════════════════════════════════════
+            </pre>
+            <pre class="article-meta">
+Author: sysadmin | Date: 2025-09-20 | Reading time: 25 min
+Categories: [HARDWARE] [DIY] [ELECTRONICS]
+            </pre>
+            <pre class="article-content">
+TABLE OF CONTENTS:
+  1. Introduction to 8-bit Architecture
+  2. Required Components
+  3. CPU Selection: Z80 vs 6502
+  4. Memory Mapping
+  5. Building the Clock Circuit
+  6. Assembly and Testing
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. INTRODUCTION TO 8-BIT ARCHITECTURE
+
+The 8-bit era defined personal computing. Understanding these
+simple yet elegant systems teaches fundamental concepts that
+modern abstraction layers hide.
+
+Key concepts:
+  • 8-bit data bus = 256 possible values
+  • 16-bit address bus = 64KB addressable memory
+  • Clock speeds: 1-4 MHz (yes, megahertz!)
+
+┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│     CPU     │────▶│     RAM     │────▶│     I/O     │
+│   (Z80)     │◀────│   (32KB)    │◀────│   PORTS     │
+└─────────────┘     └─────────────┘     └─────────────┘
+       │                    │                    │
+       └────────────────────┴────────────────────┘
+                        DATA BUS
+
+[CONTINUE READING...] [DOWNLOAD PDF] [VIEW SCHEMATICS]
+            </pre>
+        </div>
+
+        <div class="article">
+            <pre class="article-title">
+═══════════════════════════════════════════════════════════════════════════════
+▓▓▓ ARTICLE: Linux Kernel Hacking for Beginners ▓▓▓
+═══════════════════════════════════════════════════════════════════════════════
+            </pre>
+            <pre class="article-meta">
+Author: kernel_panic | Date: 2025-09-15 | Reading time: 30 min
+Categories: [LINUX] [KERNEL] [SYSTEMS_PROGRAMMING]
+            </pre>
+            <pre class="article-content">
+WARNING: Here be dragons! Kernel space is not for the faint of heart.
+
+PREREQUISITES:
+  ✓ Strong C knowledge
+  ✓ Understanding of OS concepts
+  ✓ Patience of a saint
+  ✓ Good backups
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SETTING UP YOUR ENVIRONMENT:
+
+$ git clone https://github.com/torvalds/linux.git
+$ cd linux
+$ make menuconfig
+$ make -j$(nproc)
+
+First rule of kernel development: ALWAYS test in a VM first!
+
+QEMU setup:
+$ qemu-system-x86_64 -kernel arch/x86/boot/bzImage \
+  -initrd initramfs.img -append "console=ttyS0" -nographic
+
+Your first kernel module:
+
+#include <linux/init.h>
+#include <linux/module.h>
+#include <linux/kernel.h>
+
+static int __init hello_init(void) {
+    printk(KERN_INFO "Hello from kernel space!\n");
+    return 0;
+}
+
+static void __exit hello_exit(void) {
+    printk(KERN_INFO "Goodbye, cruel world\n");
+}
+
+module_init(hello_init);
+module_exit(hello_exit);
+
+MODULE_LICENSE("GPL");
+MODULE_DESCRIPTION("Baby's first kernel module");
+
+[CONTINUE READING...] [DOWNLOAD CODE] [VIEW EXAMPLES]
+            </pre>
+        </div>
+
+        <div class="article">
+            <pre class="article-title">
+═══════════════════════════════════════════════════════════════════════════════
+▓▓▓ ARTICLE: Assembly Language: x86 Optimization Techniques ▓▓▓
+═══════════════════════════════════════════════════════════════════════════════
+            </pre>
+            <pre class="article-meta">
+Author: asm_wizard | Date: 2025-09-10 | Reading time: 20 min
+Categories: [ASSEMBLY] [OPTIMIZATION] [LOW_LEVEL]
+            </pre>
+            <pre class="article-content">
+"Premature optimization is the root of all evil" - Knuth
+But when you need speed, you need assembly.
+
+MODERN x86 OPTIMIZATION RULES:
+
+1. AVOID BRANCH MISPREDICTION
+   Bad:  cmp eax, ebx
+         je  somewhere_far_away
+   
+   Good: Use conditional moves (cmov) when possible
+
+2. ALIGN YOUR LOOPS
+   .align 16
+   loop_start:
+       ; your hot code here
+
+3. CACHE-FRIENDLY ACCESS PATTERNS
+   ; Process data sequentially
+   ; Prefetch when needed
+   prefetchnta [esi + 256]
+
+PRACTICAL EXAMPLE: Fast memcpy
+─────────────────────────────────────────────────
+; rdi = dest, rsi = src, rdx = size
+fast_memcpy:
+    cmp     rdx, 32
+    jb      .small_copy
+    
+.large_copy:
+    movdqa  xmm0, [rsi]
+    movdqa  xmm1, [rsi+16]
+    movdqa  [rdi], xmm0
+    movdqa  [rdi+16], xmm1
+    add     rsi, 32
+    add     rdi, 32
+    sub     rdx, 32
+    jnz     .large_copy
+    ret
+
+[CONTINUE READING...] [BENCHMARK RESULTS] [DOWNLOAD CODE]
+            </pre>
+        </div>
+
+        <div class="article">
+            <pre class="article-title">
+═══════════════════════════════════════════════════════════════════════════════
+▓▓▓ ARTICLE: Reverse Engineering DOS Games ▓▓▓
+═══════════════════════════════════════════════════════════════════════════════
+            </pre>
+            <pre class="article-meta">
+Author: dos_guru | Date: 2025-09-05 | Reading time: 35 min
+Categories: [REVERSE_ENGINEERING] [DOS] [GAMING]
+            </pre>
+            <pre class="article-content">
+Journey into the heart of classic DOS games!
+
+TOOLS OF THE TRADE:
+  • IDA Pro (or Ghidra for the free route)
+  • DOSBox debugger build
+  • Hex editor (HxD, Hex Fiend)
+  • Patience and coffee
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CASE STUDY: Doom (1993)
+
+Finding the god mode routine:
+
+1. Search for health decrease
+2. Set breakpoint on write
+3. Trace back to damage function
+4. NOP the subtraction
+
+      ┌─────────────┐
+      │ GAME LOOP   │
+      └──────┬──────┘
+             │
+      ┌──────▼──────┐     ┌─────────────┐
+      │CHECK DAMAGE │────▶│REDUCE HEALTH│
+      └──────┬──────┘     └─────────────┘
+             │                    ▲
+      ┌──────▼──────┐            │
+      │ RENDER FRAME│            │
+      └─────────────┘            │
+                                 │
+                          [NOP THIS CALL]
+
+Memory map of typical DOS game:
+0x0000-0x03FF: Interrupt vectors
+0x0400-0x04FF: BIOS data
+0x0500-0x9FFF: Your game lives here
+0xA000-0xBFFF: Video memory (graphics modes)
+0xC000-0xFFFF: BIOS ROM
+
+[CONTINUE READING...] [DOWNLOAD TOOLS] [VIEW EXAMPLES]
+            </pre>
+        </div>
+
+        <div class="article">
+            <pre class="article-title">
+═══════════════════════════════════════════════════════════════════════════════
+▓▓▓ ARTICLE: Network Protocol Design from First Principles ▓▓▓
+═══════════════════════════════════════════════════════════════════════════════
+            </pre>
+            <pre class="article-meta">
+Author: packet_sniffer | Date: 2025-08-30 | Reading time: 40 min
+Categories: [NETWORKING] [PROTOCOLS] [SYSTEMS_DESIGN]
+            </pre>
+            <pre class="article-content">
+Building reliable communication over unreliable networks.
+
+THE PROBLEM:
+  Networks drop packets
+  Networks reorder packets  
+  Networks duplicate packets
+  Networks corrupt packets
+  
+THE SOLUTION: Layers of abstraction
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DESIGNING A SIMPLE PROTOCOL:
+
+1. FRAME STRUCTURE
+   ┌────┬────────┬──────┬─────────┬─────┐
+   │STX │ LENGTH │ SEQ# │ PAYLOAD │ CRC │
+   └────┴────────┴──────┴─────────┴─────┘
+   1B     2B       2B     N bytes   4B
+
+2. STATE MACHINE
+   
+   IDLE ──────▶ WAIT_ACK ──────▶ COMPLETE
+     ▲              │                │
+     │              ▼                │
+     └───────── TIMEOUT ◀────────────┘
+
+3. RELIABILITY MECHANISMS
+   • Sequence numbers for ordering
+   • Acknowledgments for delivery
+   • Timeouts for lost packets
+   • CRC for corruption detection
+
+Implementation in C:
+typedef struct {
+    uint8_t  stx;        // Start byte 0x02
+    uint16_t length;     // Payload length
+    uint16_t seq_num;    // Sequence number
+    uint8_t  payload[MAX_PAYLOAD];
+    uint32_t crc32;      // CRC-32 checksum
+} packet_t;
+
+[CONTINUE READING...] [PROTOCOL SPECS] [REFERENCE IMPLEMENTATION]
+            </pre>
+        </div>
+
+        <pre class="footer">
+────────────────────────────────────────────────────────────────────────────────
+ Total articles: 5 | Categories: 12 | Last updated: 2025-09-25
+────────────────────────────────────────────────────────────────────────────────
+ Core Dump BBS © 2025 | Knowledge is power, guard it well
+────────────────────────────────────────────────────────────────────────────────
+        </pre>
+    </div>
+</body>
+</html>

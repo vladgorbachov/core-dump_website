@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Core Dump BBS - Blog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="terminal">
+        <pre class="header bbs-title">
+╔════════════════════════════════════════════════════════════════════════════════╗
+║                          CORE DUMP BBS - SYSTEM BLOG                           ║
+║                         ═══════════════════════════                            ║
+║                             Memory dumps and logs                              ║
+╚════════════════════════════════════════════════════════════════════════════════╝
+        </pre>
+
+        <pre class="menu">
+┌─[ NAVIGATION ]─────────────────────────────────────────────────────────────────┐
+│  <a href="index.html">[HOME]</a> <a href="blog.html" class="active">[BLOG]</a> <a href="articles.html">[ARTICLES]</a> <a href="media.html">[MEDIA]</a> <a href="downloads.html">[DOWNLOADS]</a>                   │
+└────────────────────────────────────────────────────────────────────────────────┘
+        </pre>
+
+        <div class="blog-post">
+            <pre class="blog-post-header">
+┌─[2025-09-25 14:32:15]─[BLOG POST #005]────────────────────────────────────────┐
+│ > TITLE: "Воскрешение старого IBM PC/XT"                                      │
+│ > AUTHOR: sysadmin                                                             │
+│ > TAGS: #hardware #retro #restoration                                          │
+│ > STATUS: published                                                            │
+│ > READ_TIME: 8 min                                                             │
+└────────────────────────────────────────────────────────────────────────────────┘
+            </pre>
+            <pre class="blog-post-content">
+Сегодня в руки попал старый IBM PC/XT 5160. Состояние — как после ядерной
+войны. Пыль, окислы, вздувшиеся конденсаторы. Но сердце еще бьется!
+
+Первым делом:
+  $ dismount /all
+  $ clean --deep --isopropyl-99
+  
+Материнская плата выглядела как археологическая находка. Intel 8088 
+на месте, но половина микросхем в сокетах окислилась. 
+
+После чистки контактов ластиком и замены конденсаторов:
+  > BOOT SEQUENCE INITIATED...
+  > MEMORY TEST: 640KB OK
+  > KEYBOARD... OK
+  > FDD CONTROLLER... OK
+  
+Жив, проклятый! DOS 3.3 загрузилась с первого раза. 
+Ностальгия level 9000.
+
+[FULL_ARTICLE_LINK] [COMMENTS: 42] [LIKES: 128]
+            </pre>
+        </div>
+
+        <div class="blog-post">
+            <pre class="blog-post-header">
+┌─[2025-09-18 09:15:42]─[BLOG POST #004]────────────────────────────────────────┐
+│ > TITLE: "Bash one-liners которые спасут твою жизнь"                         │
+│ > AUTHOR: sysadmin                                                             │
+│ > TAGS: #bash #linux #productivity                                             │
+│ > STATUS: published                                                            │
+│ > READ_TIME: 5 min                                                             │
+└────────────────────────────────────────────────────────────────────────────────┘
+            </pre>
+            <pre class="blog-post-content">
+Коллекция магических заклинаний для терминала:
+
+1. Найти и удалить старые логи:
+   $ find /var/log -name "*.log" -mtime +30 -exec rm {} \;
+   
+2. Мониторинг в реальном времени:
+   $ watch -n 1 'ps aux | sort -nrk 3,3 | head -n 5'
+   
+3. Быстрый бэкап с прогрессом:
+   $ rsync -avz --progress /source/ /destination/
+   
+4. Массовое переименование:
+   $ for f in *.txt; do mv "$f" "${f%.txt}.bak"; done
+   
+5. История команд с датой:
+   $ export HISTTIMEFORMAT="%d/%m/%y %T "
+   
+Помните: с великой силой приходит великая ответственность.
+Всегда тестируйте на кошках... то есть, на тестовом сервере!
+
+[FULL_ARTICLE_LINK] [COMMENTS: 67] [LIKES: 234]
+            </pre>
+        </div>
+
+        <div class="blog-post">
+            <pre class="blog-post-header">
+┌─[2025-09-10 22:48:33]─[BLOG POST #003]────────────────────────────────────────┐
+│ > TITLE: "Почему я перешел на механическую клавиатуру"                       │
+│ > AUTHOR: sysadmin                                                             │
+│ > TAGS: #hardware #keyboard #productivity                                      │
+│ > STATUS: published                                                            │
+│ > READ_TIME: 6 min                                                             │
+└────────────────────────────────────────────────────────────────────────────────┘
+            </pre>
+            <pre class="blog-post-content">
+CLICK-CLACK-CLICK-CLACK...
+
+Этот звук теперь саундтрек моей жизни. IBM Model M, 1987 года выпуска.
+Buckling spring switches. Вес — как у гантели. Можно убить человека.
+
+Коллеги сначала косились. Потом привыкли. Теперь сами хотят такую же.
+
+Преимущества:
+  - Тактильная отдача как у пишущей машинки
+  - Невозможно нажать случайную клавишу
+  - Служит вечно (этой клаве 37 лет!)
+  - Статус в офисе +100
+
+Недостатки:
+  - Соседи слышат когда я кодирую
+  - Кот боится
+  - Нельзя взять в кофейню (слишком громко)
+  
+Но когда пишешь код на такой клавиатуре, чувствуешь себя
+настоящим хакером из 80-х. Worth it!
+
+[FULL_ARTICLE_LINK] [COMMENTS: 89] [LIKES: 301]
+            </pre>
+        </div>
+
+        <div class="blog-post">
+            <pre class="blog-post-header">
+┌─[2025-09-03 11:24:17]─[BLOG POST #002]────────────────────────────────────────┐
+│ > TITLE: "Vim vs Emacs: Война, которой нет конца"                            │
+│ > AUTHOR: sysadmin                                                             │
+│ > TAGS: #editors #vim #emacs #holywar                                          │
+│ > STATUS: published                                                            │
+│ > READ_TIME: 7 min                                                             │
+└────────────────────────────────────────────────────────────────────────────────┘
+            </pre>
+            <pre class="blog-post-content">
+Пора расставить точки над i.
+
+VIM:
+  + Есть везде, даже в тостере
+  + Быстрый как молния
+  + Modal editing — гениально
+  - Кривая обучения как у ракетостроения
+  - :wq или :q! — вечная дилемма
+
+EMACS:
+  + Можно сварить кофе не выходя из редактора
+  + Lisp везде (для кого-то минус)
+  + Org-mode — убийца всех todo-приложений
+  - Нужна третья рука для комбинаций клавиш
+  - Загружается дольше чем Windows 95
+
+Мой выбор? Vim для быстрых правок, Emacs для больших проектов.
+А для конфигов — nano. Да, я сказал это!
+
+P.S. VS Code — для тех, кто не может выйти из Vim.
+
+[FULL_ARTICLE_LINK] [COMMENTS: 156] [LIKES: 89]
+            </pre>
+        </div>
+
+        <div class="blog-post">
+            <pre class="blog-post-header">
+┌─[2025-08-27 19:55:00]─[BLOG POST #001]────────────────────────────────────────┐
+│ > TITLE: "Hello, World! Или как я построил эту BBS"                          │
+│ > AUTHOR: sysadmin                                                             │
+│ > TAGS: #meta #webdev #nostalgia                                               │
+│ > STATUS: published                                                            │
+│ > READ_TIME: 4 min                                                             │
+└────────────────────────────────────────────────────────────────────────────────┘
+            </pre>
+            <pre class="blog-post-content">
+Первый пост в системе! 
+
+Решил создать что-то ностальгическое. Что-то, что напомнит о временах,
+когда интернет был текстовым, модемы пели свои песни, а каждый килобайт
+был на счету.
+
+Core Dump BBS — это эксперимент. Никакого JavaScript (почти), никаких
+фреймворков, никаких npm пакетов размером с операционную систему.
+Только чистый HTML, минимальный CSS и ASCII-арт.
+
+Почему? Потому что могу. И потому что скучаю по простоте тех времен.
+
+    ___________
+   [___________]
+   |  CORE     |
+   |   DUMP    |
+   |    BBS    |
+   |___________|
+   [___________]
+
+Welcome aboard!
+
+[FULL_ARTICLE_LINK] [COMMENTS: 73] [LIKES: 256]
+            </pre>
+        </div>
+
+        <pre class="footer">
+────────────────────────────────────────────────────────────────────────────────
+ Page 1 of 1 | Posts 1-5 of 5 | [NEWER] [OLDER] [RSS]
+────────────────────────────────────────────────────────────────────────────────
+ Core Dump BBS © 2025 | Running on pure nostalgia
+────────────────────────────────────────────────────────────────────────────────
+        </pre>
+    </div>
+</body>
+</html>

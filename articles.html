@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Core Dump BBS - Technical Articles</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <video autoplay loop muted playsinline class="background-video">
+        <source src="sub_page.mp4" type="video/mp4">
+    </video>
     <div class="terminal">
         <pre class="header bbs-title">
 ╔════════════════════════════════════════════════════════════════════════════════╗
@@ -18,11 +22,13 @@
 
         <pre class="menu">
 ┌─[ NAVIGATION ]─────────────────────────────────────────────────────────────────┐
-│  <a href="index.html">[HOME]</a> <a href="blog.html">[BLOG]</a> <a href="articles.html" class="active">[ARTICLES]</a> <a href="media.html">[MEDIA]</a> <a href="downloads.html">[DOWNLOADS]</a>                   │
+│  <a href="index.html">[HOME]</a> <a href="blog.html">[BLOG]</a> <a href="articles.html" class="active">[ARTICLES]</a> <a href="media.html">[MEDIA]</a> <a href="downloads.html">[DOWNLOADS]</a>                                  │
 └────────────────────────────────────────────────────────────────────────────────┘
         </pre>
 
-        <div class="article">
+        <div class="main-content-layout">
+            <div class="left-column">
+                <div class="article">
             <pre class="article-title">
 ═══════════════════════════════════════════════════════════════════════════════
 ▓▓▓ ARTICLE: Building Your Own 8-bit Computer from Scratch ▓▓▓
@@ -63,11 +69,11 @@ Key concepts:
                         DATA BUS
 
 [CONTINUE READING...] [DOWNLOAD PDF] [VIEW SCHEMATICS]
-            </pre>
-        </div>
+                    </pre>
+                </div>
 
-        <div class="article">
-            <pre class="article-title">
+                <div class="article">
+                    <pre class="article-title">
 ═══════════════════════════════════════════════════════════════════════════════
 ▓▓▓ ARTICLE: Linux Kernel Hacking for Beginners ▓▓▓
 ═══════════════════════════════════════════════════════════════════════════════
@@ -122,11 +128,11 @@ MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("Baby's first kernel module");
 
 [CONTINUE READING...] [DOWNLOAD CODE] [VIEW EXAMPLES]
-            </pre>
-        </div>
+                    </pre>
+                </div>
 
-        <div class="article">
-            <pre class="article-title">
+                <div class="article">
+                    <pre class="article-title">
 ═══════════════════════════════════════════════════════════════════════════════
 ▓▓▓ ARTICLE: Assembly Language: x86 Optimization Techniques ▓▓▓
 ═══════════════════════════════════════════════════════════════════════════════
@@ -176,11 +182,13 @@ fast_memcpy:
     ret
 
 [CONTINUE READING...] [BENCHMARK RESULTS] [DOWNLOAD CODE]
-            </pre>
-        </div>
+                    </pre>
+                </div>
+            </div>
 
-        <div class="article">
-            <pre class="article-title">
+            <div class="right-column">
+                <div class="article">
+                    <pre class="article-title">
 ═══════════════════════════════════════════════════════════════════════════════
 ▓▓▓ ARTICLE: Reverse Engineering DOS Games ▓▓▓
 ═══════════════════════════════════════════════════════════════════════════════
@@ -288,7 +296,9 @@ typedef struct {
 } packet_t;
 
 [CONTINUE READING...] [PROTOCOL SPECS] [REFERENCE IMPLEMENTATION]
-            </pre>
+                    </pre>
+                </div>
+            </div>
         </div>
 
         <pre class="footer">

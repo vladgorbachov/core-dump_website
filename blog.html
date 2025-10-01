@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Core Dump BBS - Blog</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <video autoplay loop muted playsinline class="background-video">
+        <source src="sub_page.mp4" type="video/mp4">
+    </video>
     <div class="terminal">
         <pre class="header bbs-title">
 ╔════════════════════════════════════════════════════════════════════════════════╗
@@ -22,7 +26,9 @@
 └────────────────────────────────────────────────────────────────────────────────┘
         </pre>
 
-        <div class="blog-post">
+        <div class="main-content-layout">
+            <div class="left-column">
+                <div class="blog-post">
             <pre class="blog-post-header">
 ┌─[2025-09-25 14:32:15]─[BLOG POST #005]────────────────────────────────────────┐
 │ > TITLE: "Воскрешение старого IBM PC/XT"                                      │
@@ -53,11 +59,11 @@
 Ностальгия level 9000.
 
 [FULL_ARTICLE_LINK] [COMMENTS: 42] [LIKES: 128]
-            </pre>
-        </div>
+                    </pre>
+                </div>
 
-        <div class="blog-post">
-            <pre class="blog-post-header">
+                <div class="blog-post">
+                    <pre class="blog-post-header">
 ┌─[2025-09-18 09:15:42]─[BLOG POST #004]────────────────────────────────────────┐
 │ > TITLE: "Bash one-liners которые спасут твою жизнь"                         │
 │ > AUTHOR: sysadmin                                                             │
@@ -88,11 +94,11 @@
 Всегда тестируйте на кошках... то есть, на тестовом сервере!
 
 [FULL_ARTICLE_LINK] [COMMENTS: 67] [LIKES: 234]
-            </pre>
-        </div>
+                    </pre>
+                </div>
 
-        <div class="blog-post">
-            <pre class="blog-post-header">
+                <div class="blog-post">
+                    <pre class="blog-post-header">
 ┌─[2025-09-10 22:48:33]─[BLOG POST #003]────────────────────────────────────────┐
 │ > TITLE: "Почему я перешел на механическую клавиатуру"                       │
 │ > AUTHOR: sysadmin                                                             │
@@ -124,11 +130,13 @@ Buckling spring switches. Вес — как у гантели. Можно уби
 настоящим хакером из 80-х. Worth it!
 
 [FULL_ARTICLE_LINK] [COMMENTS: 89] [LIKES: 301]
-            </pre>
-        </div>
+                    </pre>
+                </div>
+            </div>
 
-        <div class="blog-post">
-            <pre class="blog-post-header">
+            <div class="right-column">
+                <div class="blog-post">
+                    <pre class="blog-post-header">
 ┌─[2025-09-03 11:24:17]─[BLOG POST #002]────────────────────────────────────────┐
 │ > TITLE: "Vim vs Emacs: Война, которой нет конца"                            │
 │ > AUTHOR: sysadmin                                                             │
@@ -197,7 +205,9 @@ Core Dump BBS — это эксперимент. Никакого JavaScript (п
 Welcome aboard!
 
 [FULL_ARTICLE_LINK] [COMMENTS: 73] [LIKES: 256]
-            </pre>
+                    </pre>
+                </div>
+            </div>
         </div>
 
         <pre class="footer">
